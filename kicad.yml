@@ -1,0 +1,15 @@
+app: Kicad-CLI
+
+ingredients:
+  packages:
+    - kicad
+    - libgtk-3-0
+    - libsm6
+  dist: jammy
+  sources: 
+    - deb http://us.archive.ubuntu.com/ubuntu/ jammy main universe
+  ppas:
+    - kicad/kicad-7.0-releases
+script:
+  - cp ./usr/share/icons/hicolor/scalable/apps/kicad.svg .
+  - sed -i 's/Exec=kicad %f/Exec=kicad-cli %F/g' org.kicad.kicad.desktop
